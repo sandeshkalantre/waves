@@ -10,10 +10,9 @@ t = np.linspace(0,500,N)
 gamma = 0.01
 #natural frequency
 w_0 = 5
-eps = 1e-15
 
 def dy_dt(y,t):
-    return np.array([y[1]+eps,eps-1.0 * gamma*y[1] - w_0**2 * y[0]])
+    return np.array([y[1],gamma*y[1] - w_0**2 * y[0]])
 
 #initial conditions
 y0 = np.array([2,0])
