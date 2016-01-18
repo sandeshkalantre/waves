@@ -24,7 +24,7 @@ plt.plot(t,result[:,0],label=r'$\gamma = $' + str(gamma) + ' $\omega_0 = $' + st
 plt.plot([0,10],[0,0],'r--',linewidth=3.0)
 plt.xlabel('Time',fontsize=24)
 plt.ylabel('x',fontsize=24)
-plt.legend(fontsize=24)
+plt.legend(fontsize=14)
 plt.ylim([-2,2])
 plt.show()
 
