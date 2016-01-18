@@ -4,13 +4,13 @@ from scipy.integrate import odeint
 
 #number of simulation points
 N = 100
-t = np.linspace(0,100,N)
+t = np.linspace(0,500,N)
 
 #damping
 gamma = 0.01
 #natural frequency
 w_0 = 5
-eps = 1e-8
+eps = 1e-15
 
 def dy_dt(y,t):
     return np.array([y[1]+eps,eps-1.0 * gamma*y[1] - w_0**2 * y[0]])
@@ -24,7 +24,7 @@ plt.plot(t,result[:,0],label=r'$\gamma = $' + str(gamma) + ' $\omega_0 = $' + st
 plt.plot([0,10],[0,0],'r--',linewidth=3.0)
 plt.xlabel('Time',fontsize=24)
 plt.ylabel('x',fontsize=24)
-plt.legend(fontsize=24)
+plt.legend(fontsize=14)
 plt.ylim([-2,2])
 plt.show()
 
