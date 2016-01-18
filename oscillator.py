@@ -4,7 +4,7 @@ from scipy.integrate import odeint
 
 #number of simulation points
 N = 100
-t = np.linspace(0,100,N)
+t = np.linspace(0,500,N)
 
 #damping
 gamma = 0.01
