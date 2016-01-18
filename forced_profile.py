@@ -13,7 +13,7 @@ w_0 = 5
 #Forced oscillator amplitude
 F_0 = 4
 
-eps = 1e-8
+eps = 1e-15
 
 #forced oscillator
 def F(t,w):
@@ -39,5 +39,5 @@ plt.plot(w_array,A(w_array),label=r'$A(\omega)$')
 plt.plot([[w_0,w_0],[0,4]],'r--')
 plt.ylabel(r'$A(\omega)$',fontsize=16)
 plt.xlabel(r'$\omega$',fontsize=16)
-plt.legend(fontsize=24)
+plt.legend(fontsize=14)
 plt.show()
