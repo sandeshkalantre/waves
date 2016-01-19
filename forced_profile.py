@@ -4,12 +4,12 @@ import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 
 #number of simulation points
-N = 100
+N = 10000
 
 #damping
-gamma = 1
+gamma = 0.1
 #natural frequency
-w_0 = 5
+w_0 = 16
 #Forced oscillator amplitude
 F_0 = 4
 
@@ -24,19 +24,18 @@ def dy_dt(y,t,w):
 
 
 def dummy_A(w):
-    T_max = 15*2*np.pi/w_0
+    T_max = 100*2*np.pi/w_0
     t = np.linspace(0,T_max,N)
     #initial conditions
     y0 = np.array([2,0])
     
     result = odeint(dy_dt,y0,t,args=(w,))
-    amplitude = np.amax(result[N-0.5*N:N,0])
+    amplitude = np.amax(result[N-0.9*N:N,0])
     return amplitude
 A = np.vectorize(dummy_A)
-w_max = 10*w_0
-w_array = np.linspace(0,w_max,N)
+w_width = 10
+w_array = np.linspace(w_0-w_width,w_0+w_width,N)
 plt.plot(w_array,A(w_array),label=r'$A(\omega)$')
-plt.plot([[w_0,w_0],[0,4]],'r--')
 plt.ylabel(r'$A(\omega)$',fontsize=16)
 plt.xlabel(r'$\omega$',fontsize=16)
 plt.legend(fontsize=14)
