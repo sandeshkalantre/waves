@@ -13,7 +13,7 @@ w_0 = 5
 F_0 = 4
 #Forced oscillator frequency
 w = 10
-eps = 1e-8
+eps = 1e-15
 
 T_max = 15*2*np.pi/w_0
 t = np.linspace(0,T_max,N)
@@ -31,7 +31,7 @@ plt.plot(t,F(t),label=r'$F(t) = $' + str(F_0) + '$\cos($' + str(w) + '$t)$',line
 plt.plot([0,T_max],[0,0],'r--',linewidth=3.0)
 plt.xlabel(r'Time$(t)$',fontsize=16)
 plt.ylabel(r'$x$',fontsize=16)
-plt.legend(fontsize=24)
+plt.legend(fontsize=14)
 plt.ylim([-5,5])
 plt.show()
 
