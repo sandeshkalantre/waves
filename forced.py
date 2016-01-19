@@ -6,13 +6,13 @@ from scipy.integrate import odeint
 N = 1000
 
 #damping
-gamma = 1
+gamma = 0.5
 #natural frequency
 w_0 = 5
 #Forced oscillator amplitude
 F_0 = 4
 #Forced oscillator frequency
-w = 10
+w = 5
 eps = 1e-15
 
 T_max = 15*2*np.pi/w_0
@@ -28,7 +28,7 @@ y0 = np.array([2,0])
 result = odeint(dy_dt,y0,t)
 plt.plot(t,result[:,0],label=r'$\gamma = $' + str(gamma) + ' $\omega_0 = $' + str(w_0) + '$\\ x_0 = $' + str(y0[0]) + ' $v_0 = $' + str(y0[1]),linewidth=2.0)
 plt.plot(t,F(t),label=r'$F(t) = $' + str(F_0) + '$\cos($' + str(w) + '$t)$',linewidth=2.0)
-plt.plot([0,T_max],[0,0],'r--',linewidth=3.0)
+plt.plot([0,T_max],[0,0],'r--',linewidth=1.0)
 plt.xlabel(r'Time$(t)$',fontsize=16)
 plt.ylabel(r'$x$',fontsize=16)
 plt.legend(fontsize=14)
